@@ -6,18 +6,24 @@ import "./App.css";
 
 function App() {
   let [글제목, 글제목변경] = useState([
-    "씨발코로나",
+    "남자코트추천",
     "존나짜증나",
     "잘견디자..",
   ]);
   let posts = "강남 고기 맛집";
   let [따봉, 따봉변경] = useState(0);
+  function 제목바꾸기() {
+    var newArray = [...글제목];
+    newArray[0] = "여자코트추천";
+    글제목변경(newArray);
+  }
 
   return (
     <div className="App">
       <div className="black-nav">
         <div>개발 Blog</div>
       </div>
+      <button onClick={제목바꾸기}>👠</button>
       <div className="list">
         <h3>
           {글제목[0]}
