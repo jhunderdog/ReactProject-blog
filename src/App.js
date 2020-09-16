@@ -17,6 +17,7 @@ function App() {
     newArray[0] = "여자코트추천";
     글제목변경(newArray);
   }
+  let [modal, modal변경] = useState(false);
 
   return (
     <div className="App">
@@ -45,12 +46,31 @@ function App() {
         <hr />
       </div>
       <div className="list">
-        <h3>{글제목[2]}</h3>
+        <h3
+          onClick={() => {
+            modal변경(!modal);
+          }}
+        >
+          {글제목[2]}
+        </h3>
         <p>2월 17일 발행</p>
         <hr />
       </div>
+      {modal === true ? <Modal></Modal> : null}
     </div>
   );
 }
 
+function Modal() {
+  return (
+    <>
+      <div className="modal">
+        <h2>글제목</h2>
+        <p>날짜</p>
+        <p>상세내용</p>
+      </div>
+      <div></div>
+    </>
+  );
+}
 export default App;
