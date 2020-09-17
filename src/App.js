@@ -5,6 +5,14 @@ import logo from "./logo.svg";
 import "./App.css";
 
 function App() {
+  function 반복된UI() {
+    var 어레이 = [];
+    for (var i = 0; i < 3; i++) {
+      어레이.push(<div>d</div>);
+    }
+    return 어레이;
+  }
+
   let [글제목, 글제목변경] = useState([
     "남자코트추천",
     "존나짜증나",
@@ -18,13 +26,35 @@ function App() {
     글제목변경(newArray);
   }
   let [modal, modal변경] = useState(false);
-
+  var 어레이 = [2, 3, 4];
+  var 뉴어레이 = 어레이.map(function (a) {
+    return a * 2;
+  });
+  console.log(뉴어레이);
   return (
     <div className="App">
+      {반복된UI()}
       <div className="black-nav">
         <div>개발 Blog</div>
       </div>
       <button onClick={제목바꾸기}>👠</button>
+      {글제목.map((글) => {
+        return (
+          <div className="list">
+            <h3>{글}</h3>
+            <span
+              onClick={() => {
+                따봉변경(따봉 + 1);
+              }}
+            >
+              👍
+            </span>
+            {따봉}
+            <p>2월 17일 발행</p>
+            <hr />
+          </div>
+        );
+      })}
       <div className="list">
         <h3>
           {글제목[0]}
@@ -40,11 +70,7 @@ function App() {
         <p>2월 17일 발행</p>
         <hr />
       </div>
-      <div className="list">
-        <h3>{글제목[1]}</h3>
-        <p>2월 17일 발행</p>
-        <hr />
-      </div>
+
       <div className="list">
         <h3
           onClick={() => {
